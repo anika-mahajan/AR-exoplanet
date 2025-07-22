@@ -13,11 +13,8 @@ public class StarComp: MonoBehaviour
         public float luminosity;
         public string type;
 
-<<<<<<< HEAD
         public Color color;
 
-=======
->>>>>>> b3e28a0f8b80f86924704d24ea42f3660778493b
 
     public void intialize(string starName, Vector3 position, float radius, float distance, float luminosity, string type) {
         this.starName = starName;
@@ -26,7 +23,6 @@ public class StarComp: MonoBehaviour
         this.distance = distance;
         this.luminosity = luminosity;
         this.type = type;
-<<<<<<< HEAD
         
         if(string.Equals(this.type, "Main Sequence")) {
             this.color = Color.yellow;
@@ -34,7 +30,5 @@ public class StarComp: MonoBehaviour
             this.color = Color.red;
         }
         
-=======
->>>>>>> b3e28a0f8b80f86924704d24ea42f3660778493b
     }
 }

@@ -37,11 +37,7 @@ public class TouchStar : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 1000000, starLayer) && Input.GetMouseButtonDown(0))
         {
-<<<<<<< HEAD
             Debug.Log("Found an object - distance: " + hit.distance);
-=======
-            // Debug.Log("Found an object - distance: " + hit.distance);
->>>>>>> b3e28a0f8b80f86924704d24ea42f3660778493b
             if(hit.transform.GetComponent<StarComp>() != null)
             {
                 Debug.Log(hit.transform.GetComponent<StarComp>().starName);
