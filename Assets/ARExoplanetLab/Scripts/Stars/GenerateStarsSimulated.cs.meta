@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/ARExoplanetLab/Scripts/Stars/GenerateStarsSimulated.cs.meta
+guid: f6dcf7dbf5ed34dd0b672d1f6cca1e11
+========
+guid: 7a2c528e4044044ad953ab7cd333fc24
+>>>>>>>> b3e28a0f8b80f86924704d24ea42f3660778493b:Assets/ARExoplanetLab/Scripts/Stars/StarComp.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

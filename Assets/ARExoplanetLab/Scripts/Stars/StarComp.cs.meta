@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/ARExoplanetLab/Scripts/Stars/StarComp.cs.meta
+guid: 7a2c528e4044044ad953ab7cd333fc24
+========
+guid: 62b09383f366e459ebf3d4b9a4c6ac06
+>>>>>>>> b3e28a0f8b80f86924704d24ea42f3660778493b:Assets/ARExoplanetLab/Scripts/UI/GraphAnimation.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

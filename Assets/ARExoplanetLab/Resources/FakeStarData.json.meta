@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/ARExoplanetLab/Resources/FakeStarData.json.meta
+guid: 85334c21cedc24582b05a2460cf5e9b9
+========
+guid: cfc8d70ff7c4a4edd8aa4a54af78837d
+>>>>>>>> b3e28a0f8b80f86924704d24ea42f3660778493b:Assets/ARExoplanetLab/Resources/StarData.json.meta
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
