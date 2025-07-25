@@ -35,7 +35,7 @@ public class OrientingPoints : MonoBehaviour
             }
             else if (i == 1)
             {
-                direction = new Vector3(0, 1, 0).normalized;
+                direction = new Vector3(0, 0, 1).normalized;
                 material.color = Color.cyan;
             }
             else if (i == 2)
@@ -45,7 +45,7 @@ public class OrientingPoints : MonoBehaviour
             }
             else
             {
-                direction = new Vector3(0, 1, 0).normalized;
+                direction = new Vector3(0, 0, 1).normalized;
                 material.color = Color.red;
             }
 

@@ -818,7 +818,20 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
+    Android: EXTOSC
+    EmbeddedLinux: EXTOSC
+    GameCoreXboxOne: EXTOSC
+    Lumin: EXTOSC
+    Nintendo Switch: EXTOSC
+    PS4: EXTOSC
+    PS5: EXTOSC
+    Stadia: EXTOSC
+    Standalone: EXTOSC
+    WebGL: EXTOSC
+    Windows Store Apps: EXTOSC
+    XboxOne: EXTOSC
     iPhone: UNITY_XR_ARKIT_LOADER_ENABLED
+    tvOS: EXTOSC
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

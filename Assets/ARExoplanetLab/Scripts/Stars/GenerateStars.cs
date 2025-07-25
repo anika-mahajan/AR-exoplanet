@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class GenerateStars : MonoBehaviour
 {
-    
-    public GameObject BaseStar;    
-    
+
+    public GameObject BaseStar;
+
     float areaRadius = 9.9f;
     Star[] loadedStars;
 
@@ -16,6 +16,8 @@ public class GenerateStars : MonoBehaviour
 
     public GameObject Camera;
     public Material StarMaterial;
+
+    Dictionary<String, GameObject> starDictionary;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +30,11 @@ public class GenerateStars : MonoBehaviour
         TextAsset file = Resources.Load("FakeStarData") as TextAsset;
         loadedStars = JsonHelper.FromJson<Star>(file.text);
 
+        starDictionary = new Dictionary<String, GameObject>();
 
-        for (int x = 0; x < loadedStars.Length; x++) {
+
+        for (int x = 0; x < loadedStars.Length; x++)
+        {
             double ra = SexigesimalToRadians(HourAngleToSexigesimal(loadedStars[x].rightAscenscion));
             double declination = SexigesimalToRadians(loadedStars[x].declination);
             Vector3 position = EquatorialToCartesian(ra, declination);
@@ -69,7 +74,8 @@ public class GenerateStars : MonoBehaviour
     }
 
     [Serializable]
-    public class Star {
+    public class Star
+    {
         public string name;
         public string rightAscenscion;
 
@@ -80,27 +86,33 @@ public class GenerateStars : MonoBehaviour
         public string type;
     }
 
-    private void createStarObject(string starName, Vector3 position, float radius, float distance, float luminosity, string type) {
+    private void createStarObject(string starName, Vector3 position, float radius, float distance, float luminosity, string type)
+    {
         // GameObject s = GameObject.CreatePrimitive(PrimitiveType.Cube);
         GameObject s = GameObject.Instantiate(BaseStar);
         s.transform.parent = StarParent.transform;
 
+        starDictionary.Add(starName, s);
+
         StarComp comp = s.AddComponent<StarComp>();
-        
+
         comp.intialize(starName, position, radius, distance, luminosity, type);
 
-        s.transform.localPosition = position*areaRadius;
+        s.transform.localPosition = position * areaRadius;
 
         // TODO change later, forcing all stars above dome line
-        if (s.transform.localPosition.y + 2.7432f > 3.5f) {
+        if (s.transform.localPosition.y + 2.7432f > 3.5f)
+        {
             s.transform.localPosition = new Vector3(s.transform.localPosition.x, s.transform.localPosition.y + 2.7432f, s.transform.localPosition.z);
-        } else {
+        }
+        else
+        {
             s.transform.localPosition = new Vector3(s.transform.localPosition.x, UnityEngine.Random.Range(4f, 7f), s.transform.localPosition.z);
         }
-        
+
         Debug.Log(s.transform.localPosition);
 
-        s.transform.localScale = new Vector3(comp.radius*0.5f, comp.radius*0.5f, comp.radius*0.5f);
+        s.transform.localScale = new Vector3(comp.radius * 0.5f, comp.radius * 0.5f, comp.radius * 0.5f);
 
         // s.transform.LookAt(Camera.transform.position);
         // s.transform.Rotate(0, 180, 0);
@@ -116,32 +128,39 @@ public class GenerateStars : MonoBehaviour
     }
 
     // https://www.jameswatkins.me/posts/converting-equatorial-to-cartesian.html
-    public string HourAngleToSexigesimal(string hourAngle) {
+    public string HourAngleToSexigesimal(string hourAngle)
+    {
         string[] parts = hourAngle.Split("|");
         float[] nums = new float[parts.Length];
         string sexigesimal = "+|";
 
-        for (int x = 0; x < parts.Length; x++) {
+        for (int x = 0; x < parts.Length; x++)
+        {
             nums[x] = float.Parse(parts[x], System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
-            nums[x] = nums[x]*15;
-            if(x == parts.Length - 1) {
+            nums[x] = nums[x] * 15;
+            if (x == parts.Length - 1)
+            {
                 sexigesimal += nums[x];
-            } else {
-                sexigesimal += nums[x]+"|";
+            }
+            else
+            {
+                sexigesimal += nums[x] + "|";
             }
         }
         return sexigesimal;
     }
 
-    public double SexigesimalToRadians(string sexigesiamal) {
+    public double SexigesimalToRadians(string sexigesiamal)
+    {
         string[] parts = sexigesiamal.Split("|");
         double degree = double.Parse(parts[1], System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
         double minute = double.Parse(parts[2], System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
         double second = double.Parse(parts[3], System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
 
-        double rad = degree + (minute/60) + (second/3600);
+        double rad = degree + (minute / 60) + (second / 3600);
 
-        if(String.Equals(parts[0], "-")) {
+        if (String.Equals(parts[0], "-"))
+        {
             rad *= -1;
         }
 
@@ -149,7 +168,8 @@ public class GenerateStars : MonoBehaviour
     }
 
     // https://github.com/Firnox/StarrySky
-    public Vector3 EquatorialToCartesian(double ra, double declination) {
+    public Vector3 EquatorialToCartesian(double ra, double declination)
+    {
         // Place stars on a cylinder using 2D trigonometry.
         double x = System.Math.Cos(ra);
         double y = System.Math.Sin(declination);
@@ -166,4 +186,13 @@ public class GenerateStars : MonoBehaviour
         // Return as float
         return new((float)x, (float)y, (float)z);
     }
+
+    public void changeColor(string starName)
+    {
+        if (starDictionary.ContainsKey(starName))
+        {
+            starDictionary[starName].GetComponent<MeshRenderer>().material.color = Color.cyan;
+        }
+    }
+        
 }
