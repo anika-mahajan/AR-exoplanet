@@ -13,25 +13,21 @@ public class UIHandler : MonoBehaviour
     public GameObject RVPanel;
     public GameObject CatalogPanel;
 
-    public GameObject MainStarMainPanel;
-    public GameObject RedStarMainPanel;
+    public GameObject TablePanel;
 
-    public GameObject MainStarTransitPanel;
-    public GameObject RedStarTransitPanel;
+    public GameObject MainStarMainPanelImg;
+    public GameObject RedStarMainPanelImg;
 
-    public GameObject MainStarRVPanel;
-    public GameObject RedStarRVPanel;
+    public GameObject MainStarTransitPanelImg;
+    public GameObject RedStarTransitPanelImg;
 
-    public GameObject MainStarCatalogPanel;
-    public GameObject RedStarCatalogPanel;
+    public GameObject MainStarRVPanelImg;
+    public GameObject RedStarRVPanelImg;
+
+    public GameObject MainStarCatalogPanelImg;
+    public GameObject RedStarCatalogPanelImg;
 
     public bool isMainSequence;
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void ToggleButtons(bool state) {
         OriginButton.SetActive(!state);
@@ -44,13 +40,17 @@ public class UIHandler : MonoBehaviour
         TransitPanel.SetActive(false);
         RVPanel.SetActive(false);
         CatalogPanel.SetActive(false);
+        TablePanel.SetActive(false);
 
-        if(isMainSequence) {
-            MainStarMainPanel.SetActive(true);
-            RedStarMainPanel.SetActive(false);
-        } else {
-            MainStarMainPanel.SetActive(false);
-            RedStarMainPanel.SetActive(true);
+        if (isMainSequence)
+        {
+            MainStarMainPanelImg.SetActive(true);
+            RedStarMainPanelImg.SetActive(false);
+        }
+        else
+        {
+            MainStarMainPanelImg.SetActive(false);
+            RedStarMainPanelImg.SetActive(true);
         }
     }
     public void ToggleTransitPanel(bool state) {
@@ -59,13 +59,17 @@ public class UIHandler : MonoBehaviour
         TransitPanel.SetActive(true);
         RVPanel.SetActive(false);
         CatalogPanel.SetActive(false);
+        TablePanel.SetActive(false);
 
-        if(isMainSequence) {
-            MainStarTransitPanel.SetActive(true);
-            RedStarTransitPanel.SetActive(false);
-        } else {
-            MainStarTransitPanel.SetActive(false);
-            RedStarTransitPanel.SetActive(true);
+        if (isMainSequence)
+        {
+            MainStarTransitPanelImg.SetActive(true);
+            RedStarTransitPanelImg.SetActive(false);
+        }
+        else
+        {
+            MainStarTransitPanelImg.SetActive(false);
+            RedStarTransitPanelImg.SetActive(true);
         }
     }
     public void ToggleRVPanel(bool state) {
@@ -73,13 +77,17 @@ public class UIHandler : MonoBehaviour
         TransitPanel.SetActive(false);
         RVPanel.SetActive(true);
         CatalogPanel.SetActive(false);
+        TablePanel.SetActive(false);
 
-        if(isMainSequence) {
-            MainStarRVPanel.SetActive(true);
-            RedStarRVPanel.SetActive(false);
-        } else {
-            MainStarRVPanel.SetActive(false);
-            RedStarRVPanel.SetActive(true);
+        if (isMainSequence)
+        {
+            MainStarRVPanelImg.SetActive(true);
+            RedStarRVPanelImg.SetActive(false);
+        }
+        else
+        {
+            MainStarRVPanelImg.SetActive(false);
+            RedStarRVPanelImg.SetActive(true);
         }
     }
     public void ToggleCatalogPanel(bool state) {
@@ -87,19 +95,45 @@ public class UIHandler : MonoBehaviour
         TransitPanel.SetActive(false);
         RVPanel.SetActive(false);
         CatalogPanel.SetActive(true);
+        TablePanel.SetActive(false);
 
-        if(isMainSequence) {
-            MainStarCatalogPanel.SetActive(true);
-            RedStarCatalogPanel.SetActive(false);
-        } else {
-            MainStarCatalogPanel.SetActive(false);
-            RedStarCatalogPanel.SetActive(true);
+        if (isMainSequence)
+        {
+            MainStarCatalogPanelImg.SetActive(true);
+            RedStarCatalogPanelImg.SetActive(false);
+        }
+        else
+        {
+            MainStarCatalogPanelImg.SetActive(false);
+            RedStarCatalogPanelImg.SetActive(true);
         }
     }
-    public void TogglePanels(bool state) {
+
+    public void ToggleTablePanel(bool state) {
         MainPanel.SetActive(false);
         TransitPanel.SetActive(false);
         RVPanel.SetActive(false);
         CatalogPanel.SetActive(false);
+        TablePanel.SetActive(true);
+
+        // if (isMainSequence)
+        // {
+            MainStarCatalogPanelImg.SetActive(false);
+            RedStarCatalogPanelImg.SetActive(false);
+        // }
+        // else
+        // {
+        //     MainStarCatalogPanelImg.SetActive(false);
+        //     RedStarCatalogPanelImg.SetActive(true);
+        // }
+    }
+
+    public void TogglePanels(bool state)
+    {
+        MainPanel.SetActive(false);
+        TransitPanel.SetActive(false);
+        RVPanel.SetActive(false);
+        CatalogPanel.SetActive(false);
+        TablePanel.SetActive(false);
     }
 }
