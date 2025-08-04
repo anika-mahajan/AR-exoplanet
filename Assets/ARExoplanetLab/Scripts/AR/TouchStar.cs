@@ -28,6 +28,7 @@ namespace extOSC.Examples
         public TMP_Text CatalogTitleText;
 
         public UIHandler uiHandler;
+        public CatalogManager catalogManager;
         private string currentStarName = "";
 
         public GenerateStars generateStars;
@@ -74,8 +75,15 @@ namespace extOSC.Examples
                     }
 
                     uiHandler.ToggleMainPanel(true);
+                    // add in catalog handler info here
+
+                    catalogManager.starName = hit.transform.GetComponent<StarComp>().starName;
+                    catalogManager.transit = true;
+                    catalogManager.rv = true;
                 }
                 Debug.Log("Hit something!");
+
+                
 
             }
 
